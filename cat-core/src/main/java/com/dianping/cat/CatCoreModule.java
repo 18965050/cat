@@ -25,6 +25,9 @@ import org.unidal.lookup.annotation.Named;
 
 import com.dianping.cat.report.server.ServersUpdaterManager;
 
+/**
+ * core module. 负责数据库配置信息读取, 采样数据存储, netty codec, 数据分析基础类等
+ */
 @Named(type = Module.class, value = CatCoreModule.ID)
 public class CatCoreModule extends AbstractModule {
 	public static final String ID = "cat-core";

@@ -33,8 +33,8 @@ public class TestServer extends JettyServer {
 		TestServer server = new TestServer();
 		System.setProperty("devMode", "true");
 		server.startServer();
-		server.startWebApp();
-		server.stopServer();
+//		server.startWebApp();
+//		server.stopServer();
 	}
 
 	@Before

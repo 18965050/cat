@@ -22,6 +22,9 @@ import com.dianping.cat.message.spi.MessageQueue;
 import com.dianping.cat.message.spi.MessageTree;
 import com.dianping.cat.report.ReportManager;
 
+/**
+ * 消息分析器(Business, Transaction, Cross, Event, Problem, HeartBeat等等)
+ */
 public interface MessageAnalyzer {
 
 	public boolean isEligable(MessageTree tree);
@@ -35,6 +38,16 @@ public interface MessageAnalyzer {
 	public long getStartTime();
 
 	public void initialize(long startTime, long duration, long extraTime);
+
+	/**
+	 * <pre>
+	 * 根据此值创建此名称Analyzer的个数
+	 * 消息上报后, 根据domain的hash值% count 来获取对应的analyzer进行上报处理
+	 * 如果忙不过来, 再用此名称的后个analyzer处理上报数据. 这样可以:
+	 * 1. 不同domain上报的数据处理的Analyzer不是同一个Analyzer
+	 * 2. 同一个domain上报的数据尽量同一个Analyzer处理, 忙不过来再用下一个处理
+	 * </pre>
+	 */
 
 	public int getAnanlyzerCount(String name);
 

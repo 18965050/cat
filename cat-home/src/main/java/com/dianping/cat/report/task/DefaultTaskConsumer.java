@@ -35,6 +35,10 @@ import com.dianping.cat.core.dal.TaskDao;
 import com.dianping.cat.core.dal.TaskEntity;
 import com.dianping.cat.message.Transaction;
 
+
+/**
+ * 作为job-machine的消费者
+ */
 @Named
 public class DefaultTaskConsumer extends TaskConsumer {
 

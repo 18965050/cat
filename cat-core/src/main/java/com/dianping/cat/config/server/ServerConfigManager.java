@@ -387,6 +387,10 @@ public class ServerConfigManager implements LogEnabled, Initializable {
 		return Integer.parseInt(getProperty(name + "-analyzer-threads", "2"));
 	}
 
+	/**
+	 * 先从数据库加载. 加载不到从${CAT_HOME}/server.xml中加载
+	 * @throws InitializationException
+	 */
 	@Override
 	public void initialize() throws InitializationException {
 		try {

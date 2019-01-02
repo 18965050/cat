@@ -35,6 +35,9 @@ import com.dianping.cat.message.internal.MilliSecondTimer;
 import com.dianping.cat.message.io.TransportManager;
 import com.dianping.cat.status.StatusUpdateTask;
 
+/**
+ * client module. 负责数据采样, 生成MessageTree, 上报等等
+ */
 @Named(type = Module.class, value = CatClientModule.ID)
 public class CatClientModule extends AbstractModule {
 	public static final String ID = "cat-client";

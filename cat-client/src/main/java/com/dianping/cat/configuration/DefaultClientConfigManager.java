@@ -49,6 +49,7 @@ public class DefaultClientConfigManager implements LogEnabled, ClientConfigManag
 
 	private static final String PROPERTIES_FILE = "/META-INF/app.properties";
 
+	// client配置. 数据来源/data/appdatas/cat/client.xml以及和client应用中/META-INF/app.properties中的app.name所定义的domain
 	private ClientConfig m_config;
 
 	private volatile double m_sampleRate = 1d;

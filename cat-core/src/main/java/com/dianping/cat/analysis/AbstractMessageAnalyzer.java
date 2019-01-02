@@ -55,6 +55,7 @@ public abstract class AbstractMessageAnalyzer<R> extends ContainerHolder impleme
 
 	@Override
 	public void analyze(MessageQueue queue) {
+		//处理在当前period周期内的数据,因此不能结束方法而结束线程
 		while (!isTimeout() && isActive()) {
 			MessageTree tree = queue.poll();
 
@@ -71,6 +72,7 @@ public abstract class AbstractMessageAnalyzer<R> extends ContainerHolder impleme
 			}
 		}
 
+		//处理在当前period外的数据,由于数据不再会上报给此analyzer对应的PeriodTask,因此当获取不到消息时可直接结束方法,从而结束线程
 		while (true) {
 			MessageTree tree = queue.poll();
 

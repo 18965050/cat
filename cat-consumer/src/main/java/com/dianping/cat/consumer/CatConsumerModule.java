@@ -24,6 +24,9 @@ import org.unidal.initialization.ModuleContext;
 
 import com.dianping.cat.CatCoreModule;
 
+/**
+ * 各种类型数据分析器
+ */
 public class CatConsumerModule extends AbstractModule {
 	public static final String ID = "cat-consumer";
 

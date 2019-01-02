@@ -129,6 +129,14 @@ public class RealtimeConsumer extends ContainerHolder implements MessageConsumer
 		return period == null ? null : period.getAnalyzer(name);
 	}
 
+	/**<pre>
+	 * 以每小时作为一个Period,每个Period根据注册的type启动PeriodTask任务,
+	 * 每个PeriodTask中含有一个对应type的analyzer, 进行上报数据的解析.
+	 * Period时间到, PeriodTask线程也会对应的结束. 而下一个Period创建的PeriodTask线程会创建并执行
+	 * </pre>
+	 *
+	 * @throws InitializationException
+	 */
 	@Override
 	public void initialize() throws InitializationException {
 		m_periodManager = new PeriodManager(HOUR, m_analyzerManager, m_serverStateManager, m_logger);

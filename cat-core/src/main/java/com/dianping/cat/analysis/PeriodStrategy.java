@@ -18,11 +18,21 @@
  */
 package com.dianping.cat.analysis;
 
+/**
+ * <pre>
+ *     Peroid策略器. 用于确定对应Period的开始时间.
+ *     > 0: 本Period或准备开启下一个Peroid
+ *     < 0: 上一个Peroid, 需要结束
+ * </pre>
+ */
 public class PeriodStrategy {
+	//一个周期的时长,单位:ms
 	private long m_duration;
 
+	//延迟结束当前Period的延迟时长
 	private long m_extraTime;
 
+	//预留创建下个Period的提前时长
 	private long m_aheadTime;
 
 	private long m_lastStartTime;

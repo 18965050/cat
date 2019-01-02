@@ -37,6 +37,11 @@ import com.dianping.cat.report.task.reload.ReportReloadTask;
 public class CatHomeModule extends AbstractModule {
 	public static final String ID = "cat-home";
 
+	/**
+	 * Module initialize 调用
+	 * @param ctx
+	 * @throws Exception
+	 */
 	@Override
 	protected void execute(ModuleContext ctx) throws Exception {
 		ServerConfigManager serverConfigManager = ctx.lookup(ServerConfigManager.class);
@@ -73,6 +78,11 @@ public class CatHomeModule extends AbstractModule {
 		return ctx.getModules(CatConsumerModule.ID, CatHadoopModule.ID);
 	}
 
+	/**
+	 * Module initialize之前调用
+	 * @param ctx
+	 * @throws Exception
+	 */
 	@Override
 	protected void setup(ModuleContext ctx) throws Exception {
 		final TcpSocketReceiver messageReceiver = ctx.lookup(TcpSocketReceiver.class);

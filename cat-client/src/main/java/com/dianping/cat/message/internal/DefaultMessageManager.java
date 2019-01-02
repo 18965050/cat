@@ -53,12 +53,15 @@ import com.dianping.cat.message.spi.internal.DefaultMessageTree;
 @Named(type = MessageManager.class)
 public class DefaultMessageManager extends ContainerHolder implements MessageManager, Initializable, LogEnabled {
 
+	//配置管理器
 	@Inject
 	private ClientConfigManager m_configManager;
 
+	//通信管理器
 	@Inject
 	private TransportManager m_transportManager;
 
+	//messageId工厂类
 	@Inject
 	private MessageIdFactory m_factory;
 

@@ -25,8 +25,10 @@ public class ApplicationSettings {
 
 	private static final String PROPERTIES_FILE = "/META-INF/app.properties";
 
+	// messageQueue消息堆积最大值.超过则会被抛弃
 	private static int s_queue_size = 5000;
 
+	// 单颗消息树最大长度. 超过则消息树截取并发送
 	private static int s_tree_length_size = 2000;
 
 	static {
