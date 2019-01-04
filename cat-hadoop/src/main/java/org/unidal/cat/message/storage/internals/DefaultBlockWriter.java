@@ -37,6 +37,9 @@ import com.dianping.cat.configuration.NetworkInterfaceManager;
 import com.dianping.cat.message.Transaction;
 import com.dianping.cat.statistic.ServerStatisticManager;
 
+/**
+ * 块写对象
+ */
 @Named(type = BlockWriter.class, instantiationStrategy = Named.PER_LOOKUP)
 public class DefaultBlockWriter implements BlockWriter {
 
@@ -74,6 +77,11 @@ public class DefaultBlockWriter implements BlockWriter {
 		m_latch = new CountDownLatch(1);
 	}
 
+	/**
+	 * block数据落盘
+	 * @param ip
+	 * @param block
+	 */
 	private void processBlock(String ip, Block block) {
 		try {
 			Bucket bucket = m_bucketManager.getBucket(block.getDomain(), ip, block.getHour(), true);

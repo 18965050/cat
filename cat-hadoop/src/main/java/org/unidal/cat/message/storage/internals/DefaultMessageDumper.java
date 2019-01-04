@@ -61,6 +61,11 @@ public class DefaultMessageDumper extends ContainerHolder implements MessageDump
 	@Inject
 	private ServerConfigManager m_configManager;
 
+	/**
+	 * <pre>
+	 *     存放消息树的队列集合,每个队列中的消息树被MessageProcessor消费
+	 * </pre>
+	 */
 	private List<BlockingQueue<MessageTree>> m_queues = new ArrayList<BlockingQueue<MessageTree>>();
 
 	private List<MessageProcessor> m_processors = new ArrayList<MessageProcessor>();

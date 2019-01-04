@@ -38,6 +38,15 @@ import org.xerial.snappy.SnappyOutputStream;
 import com.dianping.cat.Cat;
 import com.dianping.cat.message.internal.MessageId;
 
+/**
+ * <pre>
+ *     对应一个数据块.一个数据块和一个周期内(Period)的domain(应用)对应
+ *     一个数据块最大为256k,超过则flush到SnappyOutputStream中.
+ *     注意Block和Bucket的关系: Bucket对应物理文件(可能是Local或HDFS),Block是最小的逻辑单位, 只要满了256k,就会触发
+ *     Bucket落盘, 写入数据文件(.dat)和索引文件(.idx)
+ * </pre>
+ *
+ */
 public class DefaultBlock implements Block {
 
 	private static final int MAX_SIZE = 256 * 1024;
@@ -48,6 +57,7 @@ public class DefaultBlock implements Block {
 
 	private ByteBuf m_data;
 
+	//当前的总offset. 一个MessageId对应一个offset
 	private int m_offset;
 
 	private Map<MessageId, Integer> m_offsets = new LinkedHashMap<MessageId, Integer>();

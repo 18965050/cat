@@ -61,7 +61,7 @@ public class DefaultMessageProcessor implements MessageProcessor, MessageFinder 
 
 	private BlockingQueue<MessageTree> m_queue;
 
-	private ConcurrentHashMap<String, Block> m_blocks = new ConcurrentHashMap<String, Block>();
+	private ConcurrentHashMap<String/*domain*/, Block> m_blocks = new ConcurrentHashMap<String, Block>();
 
 	private int m_hour;
 

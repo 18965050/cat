@@ -49,6 +49,11 @@ public class DefaultBlockDumper extends ContainerHolder implements BlockDumper, 
 	@Inject
 	private ServerConfigManager m_configManager;
 
+	/**
+	 * <pre>
+	 *     dump队列集合, 大小为dump线程总数.队列数据被BlockWriter消费
+	 * </pre>
+	 */
 	private List<BlockingQueue<Block>> m_queues = new ArrayList<BlockingQueue<Block>>();
 
 	private List<BlockWriter> m_writers = new ArrayList<BlockWriter>();

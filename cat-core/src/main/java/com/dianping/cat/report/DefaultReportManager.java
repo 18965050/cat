@@ -67,7 +67,7 @@ public class DefaultReportManager<T> extends ContainerHolder implements ReportMa
 
 	private String m_name;
 
-	private Map<Long, Map<String, T>> m_reports = new ConcurrentHashMap<Long, Map<String, T>>();
+	private Map<Long /*startTime*/, Map<String/*domain*/, T /*report*/>> m_reports = new ConcurrentHashMap<Long, Map<String, T>>();
 
 	private Logger m_logger;
 
